@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+.container__text {
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: rgba(49, 49, 49, 0.7);
+}
+
+.currency {
+  display: flex;
+  width: 100%;
+}
+
+.currency__type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(180, 178, 178, 0.7);
+  padding: 15px;
+  border-radius: 5px;
+  width: 33%;
+  color: rgb(108, 108, 247);
+}
+
+.currency__type_active {
+  color: white;
+  background-color: rgb(105, 105, 247);
+}
+
+.currency__type:hover {
+  cursor: pointer;
+  background-color: rgb(236, 245, 248);
+  border: 1px solid rgb(108, 108, 247);
+  border-radius: 0;
+  color: rgb(108, 108, 247);
+}
