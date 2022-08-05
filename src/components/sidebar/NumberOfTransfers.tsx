@@ -36,7 +36,6 @@ const NumberOfTransfers = () => {
     newFilters.find((n) => n.text === "Все")!.active = isAll;
 
     dispatch(setActiveFilters(newFilters));
-    console.log("Сработало, а не должно");
   };
 
   const onSingleFilterHandler = (id: number) => {
