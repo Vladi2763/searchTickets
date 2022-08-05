@@ -38,3 +38,12 @@ export const setActiveCurrency = (text: string) => {
     selectedCurrency: text,
   };
 };
+
+export const setActiveFilters = (
+  activeFilters: Array<{ active: boolean; text: string; id: number }>
+) => {
+  return {
+    type: "SET_ACTIVE_FILTERS",
+    activeFilters,
+  };
+};

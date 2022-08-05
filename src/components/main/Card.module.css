@@ -8,6 +8,10 @@
   box-shadow: 3px 3px 1px rgba(206, 203, 203, 0.7);
 }
 
+.card:last-child {
+  margin-bottom: 0px;
+}
+
 .card:hover {
   transform: translate(3px, -5px);
   transition-duration: 500ms;

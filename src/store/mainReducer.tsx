@@ -27,6 +27,8 @@ export type CurrencyArr = [string, Currency];
 export type InitialState = {
   tickets: Array<Ticket>;
   currencies: Array<CurrencyArr>;
+  filters: Array<string>;
+  activeFilters: Array<{ active: boolean; text: string; id: number }>;
   selectedCurrency: string;
 };
 
@@ -35,11 +37,20 @@ type Action = {
   tickets: Array<Ticket>;
   currencies: Array<CurrencyArr>;
   selectedCurrency: string;
+  activeFilters: Array<{ active: boolean; text: string; id: number }>;
 };
 
 const initialState: InitialState = {
   tickets: [],
   currencies: [],
+  filters: [
+    "Все",
+    "Без пересадок",
+    "1 пересадка",
+    "2 пересадки",
+    "3 пересадки",
+  ],
+  activeFilters: [],
   selectedCurrency: "RUB",
 };
 
@@ -63,6 +74,13 @@ const mainReducer = (state = initialState, action: Action) => {
       return {
         ...state,
         selectedCurrency: action.selectedCurrency,
+      };
+    }
+
+    case "SET_ACTIVE_FILTERS": {
+      return {
+        ...state,
+        activeFilters: [...action.activeFilters],
       };
     }
     default:

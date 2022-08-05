@@ -38,12 +38,19 @@
   background-color: rgb(236, 245, 248);
 }
 
-.numberOfTransfers__checkbox + label {
+.numberOfTransfers__text {
+  display: flex;
+  align-items: center;
+}
+
+.numberOfTransfers__label {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   user-select: none;
 }
-.numberOfTransfers__checkbox + label::before {
+
+.numberOfTransfers__text::before {
   content: "";
   display: inline-block;
   width: 20px;
@@ -58,12 +65,12 @@
   background-size: 50% 50%;
 }
 
-.numberOfTransfers__checkbox:checked + label::before {
+.numberOfTransfers__checkbox:checked ~ .numberOfTransfers__text::before {
   border-color: #0b76ef;
   background-color: rgb(236, 245, 248);
   background-image: url("/assets/checkbox.png");
 }
 
-.numberOfTransfers__checkbox + label:hover {
+.numberOfTransfers__checkbox ~ .numberOfTransfers__text:hover {
   cursor: pointer;
 }
