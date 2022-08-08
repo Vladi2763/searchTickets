@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { InitialState } from "../../store/mainReducer";
+import { MainReducer } from "../../store/mainReducer";
 import classes from "./Currency.module.css";
 
 import { setActiveCurrency } from "../../store/actionsCreater";
@@ -8,7 +8,7 @@ import { setActiveCurrency } from "../../store/actionsCreater";
 const Currency = () => {
   const dispatch = useDispatch();
   const selectedCurrency = useSelector(
-    (state: InitialState) => state.selectedCurrency
+    (state: MainReducer) => state.currencies.selectedCurrency
   );
 
   const clickCurrencyHandler = (text: string) => {

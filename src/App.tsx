@@ -1,22 +1,19 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getTickets, getCurrency } from "./store/actionsCreater";
 
-import classes from "./App.module.css";
+import { TicketsDispatch, CurrenciesDispatch } from "./store/actionsCreater";
 
 import Content from "./components/pages/Content";
 
 function App() {
-  const dispatch = useDispatch();
-
-  const tickets = useSelector((state: any) => state.tickets);
-  console.log(tickets);
+  const ticketDispatch: TicketsDispatch = useDispatch();
+  const currencyDispatch: CurrenciesDispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getTickets());
-    dispatch(getCurrency());
-  }, [dispatch]);
+    ticketDispatch(getTickets());
+    currencyDispatch(getCurrency());
+  }, [ticketDispatch, currencyDispatch]);
   return <Content />;
 }
 

@@ -1,5 +1,4 @@
 import classes from "./Filters.module.css";
-import { useState } from "react";
 
 const Filters: React.FC<{
   text: string;

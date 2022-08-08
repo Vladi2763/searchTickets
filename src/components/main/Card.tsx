@@ -1,6 +1,6 @@
 import classes from "./Card.module.css";
 import Button from "./Button";
-import { Ticket } from "../../store/mainReducer";
+import { Ticket } from "../../store/ticketsReducer";
 
 import changeDateFormat from "../../otherFunc/changeDateFormat";
 
@@ -48,6 +48,7 @@ const Card: React.FC<{ ticket: Ticket }> = (props) => {
               <img
                 className={classes.imgContainer__image}
                 src="/images/airplane.svg"
+                alt="airplane"
               ></img>
             </div>
           </div>

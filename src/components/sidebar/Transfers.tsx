@@ -1,7 +1,7 @@
-import classes from "./NumberOfTransfers.module.css";
-import { useEffect, useState } from "react";
+import classes from "./Transfers.module.css";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { InitialState } from "../../store/mainReducer";
+import { MainReducer } from "../../store/mainReducer";
 import Filters from "./Filters";
 import { useDispatch } from "react-redux";
 
@@ -9,10 +9,12 @@ import { setActiveFilters } from "../../store/actionsCreater";
 
 type FilterChange = (text: string, active: boolean) => void;
 
-const NumberOfTransfers = () => {
+const Transfers = () => {
   const dispatch = useDispatch();
 
-  const filtersValue = useSelector((state: InitialState) => state.filters);
+  const filtersValue = useSelector(
+    (state: MainReducer) => state.tickets.filters
+  );
 
   useEffect(() => {
     const filters = filtersValue.map((filter, index) => ({
@@ -21,10 +23,10 @@ const NumberOfTransfers = () => {
       id: index + 1,
     }));
     dispatch(setActiveFilters(filters));
-  }, []);
+  }, [dispatch]);
 
   const activeFilters = useSelector(
-    (state: InitialState) => state.activeFilters
+    (state: MainReducer) => state.tickets.activeFilters
   );
 
   const onFilterChangeHandler: FilterChange = (text, active) => {
@@ -82,4 +84,4 @@ const NumberOfTransfers = () => {
   );
 };
 
-export default NumberOfTransfers;
+export default Transfers;

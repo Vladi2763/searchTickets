@@ -35,7 +35,6 @@
   display: flex;
   align-items: center;
   user-select: none;
-
   position: relative;
 }
 
@@ -70,4 +69,6 @@
   color: #0b76ef;
   cursor: pointer;
   display: none;
+  font-size: 14px;
+  line-height: 10px;
 }

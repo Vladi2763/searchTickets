@@ -1,14 +1,16 @@
 import { useSelector } from "react-redux";
-import { InitialState } from "../../store/mainReducer";
+import { MainReducer } from "../../store/mainReducer";
 import classes from "./Button.module.css";
 
 const Button: React.FC<{ price: number }> = (props) => {
   let price;
 
   const selectedCurrency = useSelector(
-    (state: InitialState) => state.selectedCurrency
+    (state: MainReducer) => state.currencies.selectedCurrency
   );
-  const currencies = useSelector((state: InitialState) => state.currencies);
+  const currencies = useSelector(
+    (state: MainReducer) => state.currencies.currencies
+  );
   if (selectedCurrency === "RUB") {
     price = `${props.price} ₽`;
   } else {

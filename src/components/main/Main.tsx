@@ -1,12 +1,15 @@
 import { useSelector } from "react-redux";
-import { InitialState, Ticket } from "../../store/mainReducer";
+import { MainReducer } from "../../store/mainReducer";
+import { Ticket } from "../../store/ticketsReducer";
 import classes from "./Main.module.css";
 
 import Card from "./Card";
 
 const Main = () => {
-  const tickets = useSelector((state: InitialState) => {
-    const activeFilters = state.activeFilters.filter((filter) => filter.active);
+  const tickets = useSelector((state: MainReducer) => {
+    const activeFilters = state.tickets.activeFilters.filter(
+      (filter) => filter.active
+    );
 
     const filtersValue: Array<string> = activeFilters.map((filter) => {
       if (filter.text === "Все") {
@@ -24,10 +27,10 @@ const Main = () => {
     });
 
     if (filtersValue.includes("Все") || filtersValue.length === 0) {
-      return state.tickets;
+      return state.tickets.tickets;
     }
 
-    const filteredItems = state.tickets.filter((ticket: Ticket) =>
+    const filteredItems = state.tickets.tickets.filter((ticket: Ticket) =>
       filtersValue.includes(ticket.stops.toString())
     );
 
@@ -36,7 +39,7 @@ const Main = () => {
 
   return (
     <main className={classes.main}>
-      {tickets?.map((ticket, index) => (
+      {tickets.map((ticket, index) => (
         <Card ticket={ticket} key={index} />
       ))}
     </main>
